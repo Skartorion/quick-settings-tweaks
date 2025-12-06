@@ -1,9 +1,9 @@
 import GObject from "gi://GObject"
+import Gio from "gi://Gio"
 import St from "gi://St"
 import Clutter from "gi://Clutter"
 import * as MessageList from "resource:///org/gnome/shell/ui/messageList.js"
 import { gettext as _ } from "resource:///org/gnome/shell/extensions/extension.js"
-import { type DoNotDisturbSwitch } from "resource:///org/gnome/shell/ui/calendar.js"
 import { FeatureBase, type SettingLoader } from "../../libs/shell/feature.js"
 import { StyledScroll } from "../../libs/shell/styler.js"
 import Global from "../../global.js"
@@ -121,17 +121,25 @@ class NativeControl extends St.BoxLayout {
 	_clearButton: St.Button
 	_dndButton: St.Button
 	_dndLabel: St.Label
-	_dndSwitch: DoNotDisturbSwitch
+	_dndSwitch: St.Switch
+	_notificationSettings: Gio.Settings
+	_settingsChangedId: number
 
 	_init() {
-		// See : https://github.com/GNOME/gnome-shell/blob/934dbe549567f87d7d6deb6f28beaceda7da1d46/js/ui/calendar.js#L979
 		super._init({
 			style_class: "QSTWEAKS-native-controls",
 		} as Partial<St.BoxLayout.ConstructorProps>)
 
-		// DND Switch
-		this._dndSwitch = new (Global.MessageList._dndSwitch.constructor as any)() // Calendar.DoNotDisturbSwitch();
-		this._dndSwitch.style_class += " QSTWEAKS-native-dnd-switch"
+		// DND Settings - Using GSettings directly for GNOME 49+ compatibility
+		this._notificationSettings = new Gio.Settings({
+			schema_id: 'org.gnome.desktop.notifications'
+		})
+
+		// DND Switch - Custom switch using GSettings directly
+		this._dndSwitch = new St.Switch({
+			style_class: "QSTWEAKS-native-dnd-switch",
+			state: !this._notificationSettings.get_boolean('show-banners'),
+		})
 		
 		// DND Label
 		this._dndLabel = new St.Label({
@@ -148,9 +156,25 @@ class NativeControl extends St.BoxLayout {
 			label_actor: this._dndLabel,
 			y_align: Clutter.ActorAlign.CENTER,
 		})
-		this._dndSwitch.bind_property("state",
-			this._dndButton, "checked",
-			GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE)
+		
+		// Sync switch state with GSettings
+		this._settingsChangedId = this._notificationSettings.connect(
+			'changed::show-banners',
+			() => {
+				this._dndSwitch.state = !this._notificationSettings.get_boolean('show-banners')
+				this._dndButton.checked = this._dndSwitch.state
+			}
+		)
+		
+		// Handle switch toggle
+		this._dndSwitch.connect('notify::state', () => {
+			this._notificationSettings.set_boolean('show-banners', !this._dndSwitch.state)
+		})
+		
+		this._dndButton.checked = this._dndSwitch.state
+		this._dndButton.connect('clicked', () => {
+			this._dndSwitch.state = !this._dndSwitch.state
+		})
 		this.add_child(this._dndButton)
 
 		// Clear Button
@@ -163,6 +187,15 @@ class NativeControl extends St.BoxLayout {
 			accessible_name: C_("action", "Clear all notifications"),
 		})
 		this.add_child(this._clearButton)
+
+		// Cleanup on destroy
+		this.connect('destroy', () => {
+			if (this._settingsChangedId) {
+				this._notificationSettings.disconnect(this._settingsChangedId)
+				this._settingsChangedId = 0
+			}
+			this._notificationSettings = null
+		})
 	}
 }
 GObject.registerClass(NativeControl)
