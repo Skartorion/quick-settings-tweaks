@@ -121,7 +121,7 @@ class NativeControl extends St.BoxLayout {
 	_clearButton: St.Button
 	_dndButton: St.Button
 	_dndLabel: St.Label
-	_dndSwitch: St.Switch
+	_dndIcon: St.Icon
 	_notificationSettings: Gio.Settings
 	_settingsChangedId: number
 
@@ -135,46 +135,50 @@ class NativeControl extends St.BoxLayout {
 			schema_id: 'org.gnome.desktop.notifications'
 		})
 
-		// DND Switch - Custom switch using GSettings directly
-		this._dndSwitch = new St.Switch({
-			style_class: "QSTWEAKS-native-dnd-switch",
-			state: !this._notificationSettings.get_boolean('show-banners'),
+		// DND Icon
+		this._dndIcon = new St.Icon({
+			style_class: "QSTWEAKS-native-dnd-icon",
+			icon_name: "notifications-disabled-symbolic",
 		})
-		
+
 		// DND Label
 		this._dndLabel = new St.Label({
 			style_class: "QSTWEAKS-native-dnd-text",
 			text: _("Do Not Disturb"),
 			y_align: Clutter.ActorAlign.CENTER,
 		})
-		this.add_child(this._dndLabel)
+
+		// DND Button - Toggle button for DND state
 		this._dndButton = new St.Button({
-			style_class: "dnd-button",
+			style_class: "dnd-button message-list-clear-button button QSTWEAKS-native-dnd-button",
 			can_focus: true,
 			toggle_mode: true,
-			child: this._dndSwitch,
-			label_actor: this._dndLabel,
 			y_align: Clutter.ActorAlign.CENTER,
 		})
-		
-		// Sync switch state with GSettings
+
+		// Add icon and label to button
+		const buttonBox = new St.BoxLayout({
+			style_class: "QSTWEAKS-native-dnd-box",
+		})
+		buttonBox.add_child(this._dndIcon)
+		buttonBox.add_child(this._dndLabel)
+		this._dndButton.set_child(buttonBox)
+
+		// Initialize button state
+		this._syncDndState()
+
+		// Sync button state with GSettings
 		this._settingsChangedId = this._notificationSettings.connect(
 			'changed::show-banners',
-			() => {
-				this._dndSwitch.state = !this._notificationSettings.get_boolean('show-banners')
-				this._dndButton.checked = this._dndSwitch.state
-			}
+			() => this._syncDndState()
 		)
-		
-		// Handle switch toggle
-		this._dndSwitch.connect('notify::state', () => {
-			this._notificationSettings.set_boolean('show-banners', !this._dndSwitch.state)
-		})
-		
-		this._dndButton.checked = this._dndSwitch.state
+
+		// Handle button click
 		this._dndButton.connect('clicked', () => {
-			this._dndSwitch.state = !this._dndSwitch.state
+			const currentState = this._notificationSettings.get_boolean('show-banners')
+			this._notificationSettings.set_boolean('show-banners', !currentState)
 		})
+
 		this.add_child(this._dndButton)
 
 		// Clear Button
@@ -196,6 +200,14 @@ class NativeControl extends St.BoxLayout {
 			}
 			this._notificationSettings = null
 		})
+	}
+
+	_syncDndState() {
+		const dndEnabled = !this._notificationSettings.get_boolean('show-banners')
+		this._dndButton.checked = dndEnabled
+		this._dndIcon.icon_name = dndEnabled
+			? "notifications-disabled-symbolic"
+			: "org.gnome.Settings-notifications-symbolic"
 	}
 }
 GObject.registerClass(NativeControl)
