@@ -18,15 +18,15 @@ msgstr ""
 
 #: target/out/libs/prefs/components.js:57
 msgid "Details"
-msgstr ""
+msgstr "Детали"
 
 #: target/out/libs/prefs/components.js:144
 msgid "This feature marked as experimental"
-msgstr ""
+msgstr "Эта функция была помечена как эксперементальная"
 
 #: target/out/libs/prefs/components.js:274
 msgid "Reset to default"
-msgstr ""
+msgstr "Вернуть к заводским настройкам"
 
 #: target/out/libs/prefs/components.js:512
 msgid "Theme default"
@@ -34,29 +34,29 @@ msgstr ""
 
 #: target/out/libs/prefs/components.js:853
 msgid "Homepage"
-msgstr ""
+msgstr "Домашняя страница"
 
 #: target/out/libs/prefs/components.js:859
 #: target/out/libs/prefs/components.js:863 target/out/prefPages/about.js:49
 #: target/out/prefPages/about.js:51 target/out/prefPages/about.js:56
 msgid "License"
-msgstr ""
+msgstr "Лицензия"
 
 #: target/out/libs/prefs/components.js:860
 msgid "Loading ..."
-msgstr ""
+msgstr "Загрузка ..."
 
 #: target/out/libs/prefs/components.js:869
 msgid "Affected Files"
-msgstr ""
+msgstr "Затронутые файлы"
 
 #: target/out/libs/prefs/components.js:924
 msgid "Changelog"
-msgstr ""
+msgstr "Список изменений"
 
 #: target/out/libs/prefs/components.js:938
 msgid "(Current)"
-msgstr ""
+msgstr "(Текущая)"
 
 #: target/out/libs/prefs/components.js:969
 #, javascript-format
@@ -87,11 +87,11 @@ msgstr "Низ"
 
 #: target/out/libs/prefs/components.js:1060
 msgid "Left"
-msgstr ""
+msgstr "Лево"
 
 #: target/out/libs/prefs/components.js:1071
 msgid "Right"
-msgstr ""
+msgstr "Право"
 
 #: target/out/prefs.js:60
 msgid "Stable"
@@ -99,7 +99,7 @@ msgstr ""
 
 #: target/out/prefs.js:63
 msgid "Development"
-msgstr ""
+msgstr "В разработке"
 
 #: target/out/prefs.js:66
 msgid "Preview"
@@ -140,7 +140,7 @@ msgstr ""
 
 #: target/out/features/widget/media.js:888
 msgid "Media"
-msgstr ""
+msgstr "Медиа"
 
 #: target/out/features/widget/volumeMixer.js:105
 msgid "Volume changed"
@@ -148,7 +148,7 @@ msgstr "Громкость изменена"
 
 #: target/out/features/widget/volumeMixer.js:463
 msgid "Open volumx mixer"
-msgstr ""
+msgstr "Открыть микшер громкости"
 
 #: target/out/features/widget/volumeMixer.js:480
 msgid "Volume Mixer"
@@ -156,11 +156,11 @@ msgstr "Микшер громкости"
 
 #: target/out/features/widget/weather.js:73
 msgid "Weather"
-msgstr ""
+msgstr "Погода"
 
 #: target/out/features/widget/weather.js:192
 msgid "Location has not been set"
-msgstr ""
+msgstr "Локация не была установлена"
 
 #: target/out/features/toggle/unsafeQuickToggle.js:11
 #: target/out/prefPages/layout.js:346 target/out/prefPages/layout.js:496
@@ -209,12 +209,12 @@ msgstr ""
 
 #: target/out/prefPages/widgets.js:76
 msgid "Widgets"
-msgstr ""
+msgstr "Виджеты"
 
 #: target/out/prefPages/widgets.js:83 target/out/prefPages/widgets.js:136
 #: target/out/prefPages/widgets.js:162 target/out/prefPages/widgets.js:224
 msgid "Media Widget"
-msgstr ""
+msgstr "Медиа виджет"
 
 #: target/out/prefPages/widgets.js:88
 msgid "Turn on to make the media widget visible on the Quick Settings panel"
@@ -223,7 +223,7 @@ msgstr ""
 #: target/out/prefPages/widgets.js:92 target/out/prefPages/widgets.js:280
 #: target/out/prefPages/widgets.js:343
 msgid "Compact mode"
-msgstr ""
+msgstr "Компактный режим"
 
 #: target/out/prefPages/widgets.js:93
 msgid ""
