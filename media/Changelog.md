@@ -2,6 +2,26 @@
 <!-- Note: -->
 <!-- This file is visible in prefs so if -->
 <!-- it is erased it may cause an error -->
+# 2.2-offx1.1
+<!-- @BuildNumber: 11 -->
+<!-- @Includes: [] -->
+<!-- @Date: "2026-06-28 00:00:00 UTC" -->
+<!-- @Git: "4c0ae7a" -->
+
+{{HEADER}}
+
+**Off by One fork** – consolidates upstream community fixes and adds GNOME 50 support. Maintained by Off by One, Inc.; original extension by qwreey (see CREDITS).
+
+- Add GNOME Shell 50 support, with an overlay-menu X-coordinate offset fix – Tymoteusz Lango (#245)
+- GNOME 49 compatibility: replace DoNotDisturbSwitch with GSettings, DND toggle as St.Button, overlay offsetY clamp, media addEventStop fix – sfnemis (#231)
+- Volume mixer can now be disabled – Giuseppe Carboni (#236)
+- Touchpad scroll-end detection via zero-delta check – Giuseppe Carboni (#235)
+
+## Translations
+
+- Italian – nixxo (#239)
+- Russian – Skartorion De Pier (#232)
+
 # 2.3-stable
 <!-- @BuildNumber: 10 -->
 <!-- @Includes: [] -->
