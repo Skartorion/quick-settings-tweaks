@@ -111,7 +111,7 @@ export namespace Dialog {
 		usePopup?: boolean
 	}
 	export const PrefDialogPage = GObject.registerClass({
-		GTypeName: "qwreey-pref-components-PrefDialogPage",
+		GTypeName: "offx1-pref-components-PrefDialogPage",
 	}, class PrefDialogPage extends Adw.PreferencesPage {
 		constructor(childrenRequest: ChildrenRequest, dialog: Adw.PreferencesDialog, title?: string) {
 			super({
@@ -124,7 +124,7 @@ export namespace Dialog {
 		}
 	})
 	export const PrefDialog = GObject.registerClass({
-		GTypeName: "qwreey-pref-components-PrefDialog",
+		GTypeName: "offx1-pref-components-PrefDialog",
 	}, class PrefDialog extends Adw.PreferencesDialog {
 		constructor(title: string, childrenRequest: ChildrenRequest, usePopup: boolean) {
 			super({

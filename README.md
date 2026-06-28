@@ -1,3 +1,11 @@
+> ### Off by One fork
+>
+> This is a community-maintained fork of **[qwreey/quick-settings-tweaks](https://github.com/qwreey/quick-settings-tweaks)**, consolidating open compatibility and bug-fix pull requests that upstream has not merged — most importantly **GNOME 50 support**. Maintained by **Off by One, Inc.** ([@jstockdale](https://github.com/jstockdale)).
+>
+> The original extension, and the overwhelming majority of the code, is by **qwreey**. Each integrated fix is credited to its author in **[CREDITS.md](CREDITS.md)**, with original commit authorship preserved in the git history. Licensed under LGPL-3.0-or-later, same as upstream.
+
+---
+
 # Quick Settings Tweaks [<img src=".github/images/quick-settings-tweaker.png" width="200px" align="right" alt="QuickSettings-Tweaker SkeletonUI">](https://extensions.gnome.org/extension/5446/quick-settings-tweaker/)
 
 <div align="center">

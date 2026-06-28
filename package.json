@@ -1,23 +1,31 @@
 {
   "name": "quick-settings-tweaks",
-  "description": "A TypeScript GNOME Extension",
+  "description": "A TypeScript GNOME Extension — Off by One fork of qwreey/quick-settings-tweaks",
   "version": "0.0.0",
   "author": {
-    "email": "me@qwreey.moe",
-    "name": "qwreey",
-    "url": "https://github.com/qwreey"
+    "name": "Off by One, Inc.",
+    "url": "https://offx1.com"
   },
+  "contributors": [
+    { "name": "qwreey (original author)", "email": "me@qwreey.moe", "url": "https://github.com/qwreey" },
+    { "name": "John Stockdale (fork maintainer)", "url": "https://github.com/jstockdale" },
+    { "name": "Tymoteusz Lango", "url": "https://github.com/tymek805" },
+    { "name": "Giuseppe Carboni", "url": "https://github.com/giuseppe-carboni" },
+    { "name": "sfnemis", "url": "https://github.com/sfnemis" },
+    { "name": "nixxo", "url": "https://github.com/nixxo" },
+    { "name": "Skartorion De Pier", "url": "https://github.com/Skartorion" }
+  ],
   "type": "module",
   "sideEffects": false,
   "license": "LGPL-3.0-or-later",
-  "homepage": "https://github.com/qwreey/quick-settings-tweaks#readme",
+  "homepage": "https://github.com/jstockdale/quick-settings-tweaks#readme",
   "private": true,
   "bugs": {
-    "url": "https://github.com/qwreey/quick-settings-tweaks/issues"
+    "url": "https://github.com/jstockdale/quick-settings-tweaks/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qwreey/quick-settings-tweaks.git"
+    "url": "git+https://github.com/jstockdale/quick-settings-tweaks.git"
   },
   "devDependencies": {
     "sass": "^1.83.4",

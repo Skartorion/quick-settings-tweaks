@@ -115,9 +115,15 @@ export const AboutPage = GObject.registerClass({
 				icon: "qst-gnome-extension-logo-symbolic",
 			}),
 			Row({
-				uri: "https://github.com/qwreey75/quick-settings-tweaks",
-				title: _("Github Repository"),
-				subtitle: _("Add Star on Repository is helping me a lot!\nPlease, if you found bug from this extension, you can make issue to make me know that!\nOr, you can create PR with wonderful features!"),
+				uri: "https://github.com/jstockdale/quick-settings-tweaks",
+				title: _("Off by One Fork (this build)"),
+				subtitle: _("GNOME 50 fork maintained by Off by One, Inc. — consolidates upstream community fixes. Star it if it helps!"),
+				icon: "qst-github-logo-symbolic",
+			}),
+			Row({
+				uri: "https://github.com/qwreey/quick-settings-tweaks",
+				title: _("Upstream Repository (qwreey)"),
+				subtitle: _("The original extension by qwreey, which this fork is based on."),
 				icon: "qst-github-logo-symbolic",
 			}),
 			// Row({
