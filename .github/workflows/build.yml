@@ -21,4 +21,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: "quick-settings-tweaks-${{ github.sha }}"
-          path: "target/quick-settings-tweaks@qwreey.shell-extension.zip"
+          path: "target/quick-settings-tweaks@offx1.shell-extension.zip"

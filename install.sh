@@ -29,7 +29,7 @@ function fetch-contributors() {
 	LABELS=$(cat scripts/contributor-labels.json)
 	echo "["
 	FIRST="1"
-	curl -Ls "https://api.github.com/repos/qwreey/quick-settings-tweaks/contributors?per_page=16&page=1" | while read line; do
+	curl -Ls "https://api.github.com/repos/jstockdale/quick-settings-tweaks/contributors?per_page=16&page=1" | while read line; do
 		if echo $line | grep -oP '^ *{ *$' > /dev/null; then
 			[ "$FIRST" = "0" ] && echo -e "\t},"
 			FIRST="0"
@@ -134,12 +134,12 @@ function build() {
 }
 
 function enable() {
-	gnome-extensions enable quick-settings-tweaks@qwreey
+	gnome-extensions enable quick-settings-tweaks@offx1
 }
 
 function install() {
 	gnome-extensions install\
-		target/quick-settings-tweaks@qwreey.shell-extension.zip\
+		target/quick-settings-tweaks@offx1.shell-extension.zip\
 		--force
 	[ "$?" != "0" ] && echo "Failed to install extension" && return 1
 	echo "Extension was installed. logout and login shell, and check extension list."
@@ -207,7 +207,7 @@ function create-release() {
 	get-full-version
 	update-metadata-version
 	VERSION=$VERSION BUILD_NUMBER=$BUILD_NUMBER build
-	cp target/quick-settings-tweaks@qwreey.shell-extension.zip target/$VERSION-$TARGET.zip
+	cp target/quick-settings-tweaks@offx1.shell-extension.zip target/$VERSION-$TARGET.zip
 }
 
 function dev() {
