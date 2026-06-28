@@ -6,5 +6,5 @@
   "url": "https://github.com/jstockdale/quick-settings-tweaks",
   "settings-schema": "org.gnome.shell.extensions.quick-settings-tweaks",
   "gettext-domain": "quick-settings-tweaks",
-  "version-name": "2.2-offx1.1"
+  "version-name": "2.2 offx1.1"
 }

@@ -2,7 +2,7 @@
 <!-- Note: -->
 <!-- This file is visible in prefs so if -->
 <!-- it is erased it may cause an error -->
-# 2.2-offx1.1
+# 2.2 offx1.1
 <!-- @BuildNumber: 11 -->
 <!-- @Includes: [] -->
 <!-- @Date: "2026-06-28 00:00:00 UTC" -->
